@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    env:
+      PNPM_HOME: ${{ runner.tool_cache }}/pnpm
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.0.0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Build shared
+        run: pnpm --filter @pymes/shared build
+
+      - name: Typecheck API
+        run: pnpm --filter @pymes/api typecheck
+
+      - name: Lint API
+        run: pnpm --filter @pymes/api lint
+
+      - name: Test API
+        run: pnpm --filter @pymes/api test
+
+      - name: Build API
+        run: pnpm --filter @pymes/api build
+
+      - name: Typecheck Web
+        run: pnpm --filter @pymes/web typecheck
+
+      - name: Build Web
+        run: pnpm --filter @pymes/web build

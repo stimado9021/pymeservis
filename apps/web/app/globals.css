@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f8f9fa;
+  --tienda-purple: #6C5CE7;
+  --tienda-coral: #ff6b6b;
+}
+
+body {
+  background: var(--background);
+  color: #333333;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-tienda-500 text-white px-6 py-3 rounded-2xl font-semibold text-sm
+           hover:bg-tienda-600 active:bg-tienda-700 transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-tienda-500 focus:ring-offset-2
+           shadow-sm hover:shadow-md;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-tienda-500 px-6 py-3 rounded-2xl font-semibold text-sm
+           border-2 border-tienda-500 hover:bg-tienda-50 active:bg-tienda-100
+           transition-all duration-200 focus:outline-none focus:ring-2
+           focus:ring-tienda-500 focus:ring-offset-2;
+  }
+
+  .btn-coral {
+    @apply bg-coral-400 text-white px-6 py-3 rounded-2xl font-semibold text-sm
+           hover:bg-coral-500 active:bg-coral-600 transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-coral-400 focus:ring-offset-2
+           shadow-sm hover:shadow-md;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-card p-6 transition-all duration-300
+           hover:shadow-card-hover hover:-translate-y-0.5;
+  }
+
+  .input {
+    @apply w-full border-2 border-surface-200 rounded-2xl px-4 py-3 text-sm
+           outline-none transition-all duration-200
+           focus:border-tienda-500 focus:ring-2 focus:ring-tienda-500 focus:ring-opacity-20
+           placeholder:text-gray-400 bg-white;
+  }
+
+  .tag {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium
+           bg-tienda-50 text-tienda-600;
+  }
+
+  .tag-coral {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium
+           bg-coral-50 text-coral-500;
+  }
+}

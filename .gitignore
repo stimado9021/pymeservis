@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.next/
+.turbo/
+*.log
+*.err
+.env
+.env.local
+.env.example
+coverage/
+apps/api/list-users.js

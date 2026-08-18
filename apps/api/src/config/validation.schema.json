@@ -1,0 +1,16 @@
+{
+  "name": "app",
+  "type": "object",
+  "properties": {
+    "NODE_ENV": { "type": "string", "enum": ["development", "production", "test"] },
+    "PORT": { "type": "string" },
+    "DB_HOST": { "type": "string" },
+    "DB_PORT": { "type": "string" },
+    "DB_USERNAME": { "type": "string" },
+    "DB_PASSWORD": { "type": "string" },
+    "DB_DATABASE": { "type": "string" },
+    "JWT_SECRET": { "type": "string", "minLength": 8 },
+    "JWT_REFRESH_SECRET": { "type": "string", "minLength": 8 }
+  },
+  "required": ["JWT_SECRET", "JWT_REFRESH_SECRET"]
+}
